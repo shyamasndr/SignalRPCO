@@ -17,15 +17,18 @@ namespace ConsoleApp1
             {
                 IHubProxy ChatHub = hubConnection.CreateHubProxy("ChatHub");
                 await hubConnection.Start();
+                Console.WriteLine("enter deal id");
+                string dealid = Console.ReadLine();
                 while (true)
                 {
                     Console.WriteLine("enter your message");
                     string message = Console.ReadLine();
 
-                    await ChatHub.Invoke("Send", "titls", "shyam", message);
+                    await ChatHub.Invoke("Send", dealid, message);
                     Console.WriteLine();
 
                 }
+               
             }
 
         }
